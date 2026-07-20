@@ -1,0 +1,21 @@
+# Core (required)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+pydantic>=2.0
+scikit-learn>=1.3
+
+# LLM layer — OpenRouter uses an OpenAI-compatible API, so we use the openai SDK.
+# Only needed when running with the LLM (omit for --no-llm runs, i.e. model=None).
+openai>=1.30
+
+# Preferred gradient booster for model_family="lightgbm". If absent, the harness
+# falls back to scikit-learn's HistGradientBoosting.
+lightgbm>=4.0
+
+# Preferred baseline sampler. If absent, the baseline track falls back to
+# uniform random search — same interface, same trials.jsonl schema.
+optuna>=3.0
+
+# Optional config support (install as needed):
+# pyyaml       # TuningConfig.from_yaml

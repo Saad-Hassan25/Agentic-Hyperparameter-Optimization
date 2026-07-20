@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hp-agent"
+version = "0.1.0"
+description = "Agentic Hyperparameter Optimization agent (OpenRouter-backed)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Five Rivers Technologies" }]
+keywords = ["hyperparameter-tuning", "optimization", "data-science", "agent",
+            "llm", "openrouter", "lightgbm", "optuna"]
+
+# Core dependencies. The LLM layer uses the openai SDK pointed at OpenRouter; the
+# whole pipeline still runs with model=None (--no-llm mode: baseline sampler only).
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pydantic>=2.0",
+    "scikit-learn>=1.3",
+    "openai>=1.30",
+]
+
+[project.optional-dependencies]
+lightgbm = ["lightgbm>=4.0"]   # preferred booster (falls back to sklearn HistGradientBoosting)
+optuna = ["optuna>=3.0"]       # preferred baseline sampler (falls back to random search)
+yaml = ["pyyaml>=6"]            # TuningConfig.from_yaml
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["hp_agent", "hp_agent.prompts"]
+
+[tool.setuptools.package-data]
+"hp_agent.prompts" = ["*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
