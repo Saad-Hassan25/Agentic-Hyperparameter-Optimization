@@ -1,3 +1,17 @@
+<!-- Project cover -->
+<p align="center">
+  <img src="./project-cover.svg" alt="Hyperparameter Optimization Agent cover" width="100%" />
+</p>
+
+> **Python / OpenRouter** — A reasoning-led hyperparameter tuning workflow that evaluates every proposed configuration deterministically.
+
+## Project snapshot
+
+- Uses warm starts, cross-validation, trial-history reasoning, and noise-aware selection.
+- Includes a root-level <a href="./project-cover.svg">project-cover.svg</a>, a scalable project cover graphic for this repository.
+
+---
+
 # Hyperparameter Optimization Agent
 
 An **agentic** hyperparameter tuner that treats tuning as a reasoning problem over
